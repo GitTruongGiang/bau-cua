@@ -13,10 +13,14 @@ function App() {
   const indexImage = 6;
 
   const handleChange = async () => {
-    await setBox1(Math.floor(Math.random() * indexImage) + 1);
-    await setBox2(Math.floor(Math.random() * indexImage) + 1);
-    await setBox3(Math.floor(Math.random() * indexImage) + 1);
-    await toast.success("Đã Xốc Thành Công");
+    if (isStart) {
+      await setBox1(Math.floor(Math.random() * indexImage) + 1);
+      await setBox2(Math.floor(Math.random() * indexImage) + 1);
+      await setBox3(Math.floor(Math.random() * indexImage) + 1);
+      await toast.success("Đã Xốc Thành Công");
+    } else {
+      toast.error("Làm Ơn Đậy Nắp Đi Nào...");
+    }
   };
 
   const hanldeClickOn = () => {
